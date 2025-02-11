@@ -8,11 +8,11 @@ router.get('/test',(req,res)=>{
 })
 
 router.get('/register',(req,res)=>{
-    res.render("register")
+    res.send("register")
 })
 router.post('/register',
     body('email').trim().isEmail().isLength({min:13}),
-    body('password').trim3().isLength({min:5}),
+    body('password').trim().isLength({min:5}),
     body('username').trim().isLength({min:3}),
     (req,res)=>{
         const errors = validationResult(req);
